@@ -1,0 +1,160 @@
+
+📘 e-Classroom Management System
+📌 Project Overview
+The e-Classroom Management System is a web-based application designed to facilitate online education by enabling efficient classroom management, assignment handling, attendance tracking, and notifications. The system follows modern software engineering principles and uses a scalable MVC architecture with a responsive user interface.
+🏗 Application Architecture
+🔹 Architectural Pattern
+The application follows the Model–View–Controller (MVC) architectural pattern to ensure:
+Separation of concerns
+Scalability
+Ease of maintenance
+🔹 Components of MVC Architecture
+📦 Model
+The Model handles all data-related logic and database interactions.
+A relational SQL database is used.
+Proposed Models:
+User: Stores user details such as name, role, email, and encrypted password.
+Classroom: Manages classroom information including schedule and enrolled users.
+Assignment: Handles assignment details and student submissions.
+Attendance: Tracks attendance records for students.
+🎨 View
+The View is responsible for presenting data to users through a responsive UI.
+Technologies Used:
+React.js for frontend development
+Tailwind CSS for styling
+Key Features:
+Dashboards
+Class schedules
+Assignment lists
+Responsive layouts for mobile and desktop devices
+🧠 Controller
+The Controller acts as an intermediary between the Model and the View by:
+Processing user requests
+Calling appropriate model functions
+Returning formatted responses to the frontend
+🔹 API Development
+The system uses RESTful APIs for communication between frontend and backend.
+🔸 Internal APIs
+User authentication
+Assignment submission
+Classroom management
+(Using HTTP methods: GET, POST, PUT, DELETE)
+🔸 External APIs
+Nodemailer: Sends email notifications (e.g., attendance alerts)
+Cloudinary: Secure cloud storage for assignments and study materials
+🔹 UML Diagrams
+Class Diagram: Shows relationships between User, Classroom, Assignment, and Attendance
+Sequence Diagram: Illustrates assignment submission workflow
+(Student → Frontend → Backend → Storage → Acknowledgment)
+🗄 Data Model Schema
+🔹 Entity Descriptions & Relationships
+👤 User
+Attributes:
+userID (PK)
+name
+email
+password (encrypted)
+role (Admin, Teacher, Student)
+Relationships:
+One-to-many with Classroom
+One-to-many with Assignment
+🏫 Classroom
+Attributes:
+classID (PK)
+className
+description
+teacherID (FK)
+Relationships:
+One-to-many with Assignment
+One-to-many with Attendance
+📝 Assignment
+Attributes:
+assignmentID (PK)
+title
+description
+dueDate
+classID (FK)
+studentID (FK)
+Relationships:
+Many-to-one with Classroom
+Many-to-one with User
+📅 Attendance
+Attributes:
+attendanceID (PK)
+date
+status (Present, Absent, Tardy)
+studentID (FK)
+classID (FK)
+🔔 Notification
+Attributes:
+notificationID (PK)
+userID (FK)
+message
+status (Read/Unread)
+🔹 ER Diagram
+The ER Diagram visually represents relationships among:
+User
+Classroom
+Assignment
+Attendance
+Notification
+🎨 User Interface Design
+🔹 Design Philosophy
+🎨 Color Scheme
+Blue (#1E88E5) – Primary actions and headers
+White (#FFFFFF) – Background
+Gray (#F5F5F5) – Secondary sections
+Green (#43A047) – Success indicators
+Red (#E53935) – Errors and warnings
+🔤 Typography
+Font: Roboto
+Font Sizes:
+Headings: 20–24px
+Body Text: 14–16px
+Small Text: 12px
+📱 Responsiveness
+Mobile screens: ≥ 375px
+Desktop screens: ≥ 1200px
+Full HD support: 1920px
+(Tailwind CSS ensures flexible layouts)
+🖥 Application Screens
+🔹 Login Screen
+Inputs:
+Email
+Password
+Constraints:
+Valid email format
+Password ≥ 8 characters with uppercase, lowercase, digit, and special character
+🔹 Dashboard
+Features:
+Upcoming classes
+Assignments
+Notifications
+Controls:
+Filters
+Search bar
+Action buttons
+🔹 Classroom Page
+Features:
+Class details
+Assignment list
+Student list
+Constraints:
+Assignment title ≤ 50 characters
+File upload: PDF/DOCX only
+🔹 Assignment Submission
+Constraints:
+File size ≤ 10MB
+Optional notes ≤ 200 characters
+🔹 Attendance Page
+Features:
+Mark Present / Absent / Tardy
+Save attendance
+Constraint:
+No future dates allowed
+🔹 Notification Page
+Actions:
+Mark as read
+Delete notification
+✅ Conclusion
+The e-Classroom Management System is a scalable, secure, and user-friendly platform designed to enhance online education experiences through structured architecture, efficient data handling, and modern UI practices.
